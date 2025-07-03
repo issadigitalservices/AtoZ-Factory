@@ -51,27 +51,16 @@
         .animate-fadeInScale {
             animation: fadeInScale 1s ease-out forwards;
         }
+        /* Ensure the welcome section has enough height to be visible below the header */
+        .welcome-section {
+            min-height: calc(100vh - 68px); /* Adjust 68px based on your header's actual height if needed */
+            /* This ensures the welcome section takes up most of the remaining viewport height */
+        }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Welcome Screen / Hero Section -->
-    <section id="welcome" class="relative h-screen w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/4A90E2/FFFFFF?text=AtoZ+Factory+Background');"></div>
-        <div class="relative z-10 text-center p-6 sm:p-8 md:p-10 lg:p-12 bg-white bg-opacity-10 rounded-2xl shadow-xl backdrop-blur-sm animate-fadeInScale">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
-                Welcome to AtoZ Factory!
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">
-                Your one-stop shop for incredible deals and quality products, delivered right to your doorstep.
-            </p>
-            <a href="#products" class="inline-block bg-white text-blue-600 hover:bg-blue-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-                Start Shopping
-            </a>
-        </div>
-    </section>
-
-    <!-- Header - Sticky Navigation -->
+    <!-- Header - Sticky Navigation (Moved to the top) -->
     <header class="sticky-header bg-white py-4 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <!-- Logo and Site Name -->
@@ -99,6 +88,22 @@
             </nav>
         </div>
     </header>
+
+    <!-- Welcome Screen / Hero Section (Now comes after the header) -->
+    <section id="welcome" class="welcome-section relative w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/4A90E2/FFFFFF?text=AtoZ+Factory+Background');"></div>
+        <div class="relative z-10 text-center p-6 sm:p-8 md:p-10 lg:p-12 bg-white bg-opacity-10 rounded-2xl shadow-xl backdrop-blur-sm animate-fadeInScale">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+                Welcome to AtoZ Factory!
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">
+                Your one-stop shop for incredible deals and quality products, delivered right to your doorstep.
+            </p>
+            <a href="#products" class="inline-block bg-white text-blue-600 hover:bg-blue-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Start Shopping
+            </a>
+        </div>
+    </section>
 
     <!-- Main Content Area -->
     <main class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
