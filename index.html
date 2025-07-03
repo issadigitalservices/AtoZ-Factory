@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtoZ Factory - Your One-Stop Online Shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8f8f8; /* Light background for the whole page */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Sticky header specific styles */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom animation for welcome text */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-fadeInScale {
+            animation: fadeInScale 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Welcome Screen / Hero Section -->
+    <section id="welcome" class="relative h-screen w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/4A90E2/FFFFFF?text=AtoZ+Factory+Background');"></div>
+        <div class="relative z-10 text-center p-6 sm:p-8 md:p-10 lg:p-12 bg-white bg-opacity-10 rounded-2xl shadow-xl backdrop-blur-sm animate-fadeInScale">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+                Welcome to AtoZ Factory!
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">
+                Your one-stop shop for incredible deals and quality products, delivered right to your doorstep.
+            </p>
+            <a href="#products" class="inline-block bg-white text-blue-600 hover:bg-blue-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Start Shopping
+            </a>
+        </div>
+    </section>
+
+    <!-- Header - Sticky Navigation -->
+    <header class="sticky-header bg-white py-4 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <!-- Logo and Site Name -->
+            <div class="flex items-center space-x-3">
+                <img src="https://placehold.co/40x40/007BFF/FFFFFF?text=A" alt="AtoZ Factory Logo" class="rounded-lg shadow-sm">
+                <a href="#" class="text-2xl font-bold text-blue-600">AtoZ Factory</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Navigation Links (Hidden on mobile by default, shown by JS) -->
+            <nav id="main-nav" class="hidden lg:flex flex-col lg:flex-row lg:items-center lg:space-x-8 mt-4 lg:mt-0 w-full lg:w-auto">
+                <a href="#products" class="block lg:inline-block text-gray-700 hover:text-blue-600 font-medium py-2 lg:py-0 px-3 rounded-lg transition duration-200">Products</a>
+                <a href="#killer-deals" class="block lg:inline-block text-gray-700 hover:text-blue-600 font-medium py-2 lg:py-0 px-3 rounded-lg transition duration-200">Killer Deals</a>
+                <a href="#about" class="block lg:inline-block text-gray-700 hover:text-blue-600 font-medium py-2 lg:py-0 px-3 rounded-lg transition duration-200">About Us</a>
+                <a href="#contact" class="block lg:inline-block text-gray-700 hover:text-blue-600 font-medium py-2 lg:py-0 px-3 rounded-lg transition duration-200">Contact</a>
+                <button class="block lg:inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition duration-300 ease-in-out shadow-md mt-4 lg:mt-0">
+                    My Cart (0)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+
+        <!-- Killer Deals Section -->
+        <section id="killer-deals" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-8">🔥 Killer Deals! Don't Miss Out! 🔥</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Deal Product Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/FF5733/FFFFFF?text=Smartwatch+Deal" alt="Smartwatch" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pro Smartwatch X1</h3>
+                        <p class="text-gray-600 text-sm mb-3">Track your fitness, notifications, and more.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-red-600 text-2xl font-bold mr-2">$49.99</span>
+                            <span class="text-gray-500 line-through">$99.99</span>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deal Product Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/33FF57/FFFFFF?text=Wireless+Earbuds" alt="Wireless Earbuds" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Ultra Bass Earbuds</h3>
+                        <p class="text-gray-600 text-sm mb-3">Immersive sound experience with long battery life.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-red-600 text-2xl font-bold mr-2">$29.99</span>
+                            <span class="text-gray-500 line-through">$59.99</span>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deal Product Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/5733FF/FFFFFF?text=Portable+Speaker" alt="Portable Speaker" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Portable Bluetooth Speaker</h3>
+                        <p class="text-gray-600 text-sm mb-3">Powerful sound on the go, waterproof design.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-red-600 text-2xl font-bold mr-2">$39.99</span>
+                            <span class="text-gray-500 line-through">$79.99</span>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deal Product Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/FFC300/FFFFFF?text=Gaming+Mouse" alt="Gaming Mouse" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">RGB Gaming Mouse</h3>
+                        <p class="text-gray-600 text-sm mb-3">Precision sensor, customizable RGB lighting.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-red-600 text-2xl font-bold mr-2">$19.99</span>
+                            <span class="text-gray-500 line-through">$39.99</span>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2 rounded-lg font-semibold hover:bg-red-600 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Products Section -->
+        <section id="products" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-8">Our Top Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/A020F0/FFFFFF?text=Laptop" alt="Laptop" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Lightweight Laptop Pro</h3>
+                        <p class="text-gray-600 text-sm mb-3">Powerful performance in a sleek design.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-blue-600 text-2xl font-bold">$799.99</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/00FFFF/000000?text=Headphones" alt="Headphones" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Noise-Cancelling Headphones</h3>
+                        <p class="text-gray-600 text-sm mb-3">Immerse yourself in pure audio bliss.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-blue-600 text-2xl font-bold">$149.99</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/FF00FF/FFFFFF?text=Camera" alt="Camera" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Professional DSLR Camera</h3>
+                        <p class="text-gray-600 text-sm mb-3">Capture life's moments in stunning detail.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-blue-600 text-2xl font-bold">$1200.00</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="https://placehold.co/400x300/008000/FFFFFF?text=Coffee+Maker" alt="Coffee Maker" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Smart Coffee Maker</h3>
+                        <p class="text-gray-600 text-sm mb-3">Wake up to the perfect brew, every morning.</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-blue-600 text-2xl font-bold">$89.99</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="mb-12 p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">About AtoZ Factory</h2>
+            <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                AtoZ Factory is your premier online destination for a wide range of products, from electronics to home essentials. We are committed to providing high-quality items at unbeatable prices, ensuring a seamless and enjoyable shopping experience for all our customers. Our mission is to bring convenience and value directly to your fingertips.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-12 p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Get in Touch</h2>
+            <div class="text-center">
+                <p class="text-lg text-gray-700 mb-4">Have questions or need assistance? Feel free to contact us:</p>
+                <a href="https://wa.me/919746431460" target="_blank" class="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300 ease-in-out shadow-md transform hover:scale-105">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.2 22.04L7.57 20.61C9.06 21.46 10.79 21.91 12.54 21.91C18 21.91 22.45 17.46 22.45 12C22.45 6.45 18 2 12.04 2ZM17.18 16.14C16.92 16.63 16.18 16.87 15.7 16.7C15.22 16.53 14.26 16.09 13.78 15.86C13.3 15.63 12.92 15.56 12.54 16.14C12.16 16.72 11.08 17.68 10.22 17.45C9.36 17.22 8.62 16.06 8.14 15.32C7.66 14.58 7.28 13.75 7.76 13.01C8.24 12.27 8.72 12.1 9.09 12.03C9.47 11.96 9.85 11.96 10.12 12.03C10.39 12.1 10.56 12.34 10.73 12.65C10.9 12.96 11.17 13.34 11.26 13.57C11.35 13.8 11.43 13.88 11.69 13.71C11.96 13.54 12.34 13.3 12.72 13.07C13.1 12.84 13.57 12.6 14.05 12.37C14.53 12.14 14.91 11.91 15.28 11.68C15.66 11.45 16.04 11.22 16.31 11.08C16.58 10.94 16.85 10.87 17.02 11.1C17.19 11.33 17.36 11.64 17.45 11.87C17.54 12.1 17.62 12.27 17.62 12.54C17.62 12.81 17.54 12.98 17.45 13.25C17.36 13.52 17.28 13.69 17.18 13.86C17.09 14.03 17.01 14.2 16.92 14.37C16.83 14.54 16.75 14.71 16.66 14.88C16.57 15.05 16.49 15.22 16.41 15.39C16.32 15.56 16.24 15.73 16.15 15.9Z"/>
+                    </svg>
+                    WhatsApp: +91 9746431460
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919746431460" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-110 z-50">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.2 22.04L7.57 20.61C9.06 21.46 10.79 21.91 12.54 21.91C18 21.91 22.45 17.46 22.45 12C22.45 6.45 18 2 12.04 2ZM17.18 16.14C16.92 16.63 16.18 16.87 15.7 16.7C15.22 16.53 14.26 16.09 13.78 15.86C13.3 15.63 12.92 15.56 12.54 16.14C12.16 16.72 11.08 17.68 10.22 17.45C9.36 17.22 8.62 16.06 8.14 15.32C7.66 14.58 7.28 13.75 7.76 13.01C8.24 12.27 8.72 12.1 9.09 12.03C9.47 11.96 9.85 11.96 10.12 12.03C10.39 12.1 10.56 12.34 10.73 12.65C10.9 12.96 11.17 13.34 11.26 13.57C11.35 13.8 11.43 13.88 11.69 13.71C11.96 13.54 12.34 13.3 12.72 13.07C13.1 12.84 13.57 12.6 14.05 12.37C14.53 12.14 14.91 11.91 15.28 11.68C15.66 11.45 16.04 11.22 16.31 11.08C16.58 10.94 16.85 10.87 17.02 11.1C17.19 11.33 17.36 11.64 17.45 11.87C17.54 12.1 17.62 12.27 17.62 12.54C17.62 12.81 17.54 12.98 17.45 13.25C17.36 13.52 17.28 13.69 17.18 13.86C17.09 14.03 17.01 14.2 16.92 14.37C16.83 14.54 16.75 14.71 16.66 14.88C16.57 15.05 16.49 15.22 16.41 15.39C16.32 15.56 16.24 15.73 16.15 15.9Z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">
+                Designed by ISSA Technical team, All rights reserved &copy; 2025
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menu-button');
+            const mainNav = document.getElementById('main-nav');
+
+            // Toggle navigation menu visibility on mobile
+            menuButton.addEventListener('click', function() {
+                mainNav.classList.toggle('hidden');
+                mainNav.classList.toggle('flex');
+                mainNav.classList.toggle('flex-col');
+            });
+
+            // Close mobile menu when a link is clicked
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 1024) { // Only close on mobile (lg breakpoint is 1024px)
+                        mainNav.classList.add('hidden');
+                        mainNav.classList.remove('flex');
+                        mainNav.classList.remove('flex-col');
+                    }
+                });
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
